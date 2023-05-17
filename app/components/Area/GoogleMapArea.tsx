@@ -17,6 +17,12 @@ const GoogleMapArea: React.FC<GoogleMapAreaProps> = ({ searchData }) => {
     height: "100%",
   };
 
+  // MapOptionsオブジェクト
+  const mapOptions = {
+    mapTypeControl: false, // 地図の表示切り替えボタンを非表示
+    streetViewControl: false, // ストリートビュー表示切り替えボタンを非表示
+  };
+
   // マップの中心座標
   const center = {
     lat: 35.6895, // 緯度
@@ -28,18 +34,19 @@ const GoogleMapArea: React.FC<GoogleMapAreaProps> = ({ searchData }) => {
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         center={searchData?.data.results[0].geometry.location ?? center}
+        options={mapOptions}
         zoom={10}
       >
         {searchData?.data.results.map((markerLoc: any) => {
           return (
             <>
               <Marker position={markerLoc.geometry.location} />
-              <InfoWindow position={markerLoc.geometry.location}>
+              {/* <InfoWindow position={markerLoc.geometry.location}>
                 <div>
                   <h3>Infowindow Content</h3>
                   <p>Any information you want to display here.</p>
                 </div>
-              </InfoWindow>
+              </InfoWindow> */}
             </>
           );
         })}

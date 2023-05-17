@@ -13,7 +13,7 @@ const RegistRestaurantArea: React.FC = ({}) => {
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
       <GoogleMapArea searchData={searchData} />
-      <div style={{ position: "absolute", top: "60px", left: "10px" }}>
+      <div style={{ position: "absolute", top: "20px", left: "10px" }}>
         <SearchInputArea setSerachData={setSerachData} />
       </div>
     </div>
