@@ -6,7 +6,7 @@ import { AxiosResponse } from "axios";
 
 import GoogleMap from "../components/UI/GoogleMap";
 import SearchInput from "../components/UI/SerachInput";
-import SideResult from "../components/UI/SideResult";
+import SideResult from "../components/Layout/SideResult";
 
 const RegistRestaurantArea: React.FC = ({}) => {
   const [searchData, setSerachData] = useState<AxiosResponse>();
