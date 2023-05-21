@@ -7,9 +7,13 @@ interface SearchInputProps {
   setSerachData: React.Dispatch<
     React.SetStateAction<AxiosResponse<any, any> | undefined>
   >;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SearchInputArea: React.FC<SearchInputProps> = ({ setSerachData }) => {
+const SearchInputArea: React.FC<SearchInputProps> = ({
+  setSerachData,
+  setIsVisible,
+}) => {
   const GOOGLE_TEXT_SEARCH_URL =
     "http://localhost:3000/api/places/textsearch/json";
 
@@ -28,6 +32,7 @@ const SearchInputArea: React.FC<SearchInputProps> = ({ setSerachData }) => {
       axios(options)
         .then((response) => {
           setSerachData(response);
+          setIsVisible(true);
           console.log(response.data);
         })
         .catch((error) => {
