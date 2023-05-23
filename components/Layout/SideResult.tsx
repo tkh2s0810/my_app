@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { AxiosResponse } from "axios";
 
+import ResultItem from "../UI/ResultItem";
+
 import "../../styles/SideResult.css";
 
 interface SideResultAreaProps {
@@ -14,8 +16,9 @@ const SideResultArea: React.FC<SideResultAreaProps> = ({
 }) => {
   return (
     <>
-      {searchData?.data.results.map((result: any) => {})}
-      <h1 className={`slide-in ${isVisible ? "visible" : ""}`}>ホゲホゲ</h1>
+      {searchData?.data.results.map((result: any) => {
+        return <ResultItem result={result} />;
+      })}
     </>
   );
 };
