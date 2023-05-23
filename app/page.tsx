@@ -16,7 +16,7 @@ const RegistRestaurantArea: React.FC = ({}) => {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative w-screen h-screen">
         <GoogleMap searchData={searchData} />
         <div className="absolute">
           <SearchInput
