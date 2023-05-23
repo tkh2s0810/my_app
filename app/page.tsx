@@ -18,7 +18,7 @@ const RegistRestaurantArea: React.FC = ({}) => {
     <>
       <div className="relative w-screen h-screen">
         <GoogleMap searchData={searchData} />
-        <div className="absolute">
+        <div className="absolute top-1">
           <SearchInput
             setSerachData={setSerachData}
             setIsVisible={setIsVisible}
