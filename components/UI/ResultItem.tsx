@@ -7,16 +7,18 @@ interface ResultItemProps {
 }
 
 const ResultItem: React.FC<ResultItemProps> = ({ result }) => {
-  const apiKey = "AIzaSyDXS2EWjKRtXch_OWCrmCgsK9uoHa6nmdE";
   const photoReference = result.photos?.[0].photo_reference;
   const maxWidth = 200;
   const maxHeight = 100;
 
-  const imageUrl = `https://maps.googleapis.com/maps/api/place/photo?key=${apiKey}&photoreference=${photoReference}&maxwidth=${maxWidth}&maxheight=${maxHeight}`;
+  const imageUrl = `https://maps.googleapis.com/maps/api/place/photo?key=${process.env.NEXT_PUBLIC_API_KEY}&photoreference=${photoReference}&maxwidth=${maxWidth}&maxheight=${maxHeight}`;
 
   return (
     <>
-      <div className="bg-gray-100 border-double w-96">
+      <div
+        onClick={() => alert("hoge")}
+        className="bg-gray-100 border-double w-96"
+      >
         <div className="flex flex-wrap">
           <div>
             <p className="w-48">{result.name}</p>

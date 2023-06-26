@@ -1,5 +1,5 @@
 import React from "react";
-import { AxiosResponse } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import {
   GoogleMap,
   LoadScript,
@@ -29,6 +29,27 @@ const GoogleMapArea: React.FC<GoogleMapAreaProps> = ({ searchData }) => {
     lng: 139.6917, // 経度
   };
 
+  const GOOGLE_PLACE_DETAILS_URL =
+    "http://localhost:3000/api/places/details/json";
+
+  const showDetail = (placeId: string) => {
+    const options: AxiosRequestConfig = {
+      url: GOOGLE_PLACE_DETAILS_URL,
+      method: "GET",
+      params: {
+        place_id: placeId,
+        key: process.env.NEXT_PUBLIC_API_KEY,
+      },
+    };
+    axios(options)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_API_KEY as string}>
       <GoogleMap
@@ -40,7 +61,11 @@ const GoogleMapArea: React.FC<GoogleMapAreaProps> = ({ searchData }) => {
         {searchData?.data.results.map((markerLoc: any) => {
           return (
             <>
-              <Marker position={markerLoc.geometry.location} />
+              <Marker
+                position={markerLoc.geometry.location}
+                onClick={() => showDetail(markerLoc.place_id)}
+                key={markerLoc.place_id}
+              />
               {/* <InfoWindow position={markerLoc.geometry.location}>
                 <div>
                   <h3>Infowindow Content</h3>

@@ -9,16 +9,4 @@ module.exports = {
       },
     ];
   },
-  async serverMiddleware() {
-    this.app.use(
-      "/api/places",
-      createProxyMiddleware({
-        target: "https://maps.googleapis.com",
-        changeOrigin: true,
-        pathRewrite: {
-          "^/api/places": "/maps/api/place",
-        },
-      })
-    );
-  },
 };

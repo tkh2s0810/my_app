@@ -6,7 +6,7 @@ import { AxiosResponse } from "axios";
 
 import GoogleMap from "../components/UI/GoogleMap";
 import SearchInput from "../components/UI/SerachInput";
-import SideResult from "../components/Layout/SideResult";
+import SearchResult from "../components/Layout/SearchResult";
 
 import "../styles/tailwind.css";
 
@@ -16,15 +16,14 @@ const RegistRestaurantArea: React.FC = ({}) => {
 
   return (
     <>
-      <div className="relative w-screen h-screen">
+      <div className="relative w-screen h-screen overflow-hidden">
         <GoogleMap searchData={searchData} />
-        <div className="absolute top-1">
-          <SearchInput
-            setSerachData={setSerachData}
-            setIsVisible={setIsVisible}
-          />
-          <SideResult searchData={searchData} isVisible={isVisible} />
-        </div>
+        <SearchResult
+          searchData={searchData}
+          setSerachData={setSerachData}
+          isVisible={isVisible}
+          setIsVisible={setIsVisible}
+        />
       </div>
     </>
   );

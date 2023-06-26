@@ -15,11 +15,11 @@ const SideResultArea: React.FC<SideResultAreaProps> = ({
   isVisible,
 }) => {
   return (
-    <>
+    <div>
       {searchData?.data.results.map((result: any) => {
         return <ResultItem result={result} />;
       })}
-    </>
+    </div>
   );
 };
 
