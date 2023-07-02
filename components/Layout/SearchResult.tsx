@@ -3,8 +3,7 @@ import { AxiosResponse } from "axios";
 
 import SearchInput from "../UI/SerachInput";
 import SideResult from "./SideResult";
-
-import "../../styles/SideResult.css";
+import StoreDetails from "./StoreDetails";
 
 interface SearchResultProps {
   searchData: AxiosResponse<any, any> | undefined;
@@ -13,6 +12,8 @@ interface SearchResultProps {
   >;
   isVisible: boolean;
   setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  storeDetails: any;
+  setStoreDetails: any;
 }
 
 const SearchResult: React.FC<SearchResultProps> = ({
@@ -20,9 +21,11 @@ const SearchResult: React.FC<SearchResultProps> = ({
   setSerachData,
   isVisible,
   setIsVisible,
+  storeDetails,
+  setStoreDetails,
 }) => {
   return (
-    <div className="absolute flex h-full top-1">
+    <div className="absolute flex h-full space-x-2 top-1">
       <div className="overflow-auto">
         <SearchInput
           setSerachData={setSerachData}
@@ -30,7 +33,10 @@ const SearchResult: React.FC<SearchResultProps> = ({
         />
         <SideResult searchData={searchData} isVisible={isVisible} />
       </div>
-      <div className="h-16 bg-indigo-700">hogehoge</div>
+      <StoreDetails
+        storeDetails={storeDetails}
+        setStoreDetails={setStoreDetails}
+      />
     </div>
   );
 };
