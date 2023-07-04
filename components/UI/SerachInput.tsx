@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Unstable_Grid2 as Grid } from "@mui/material";
 
 interface SearchInputProps {
   setSerachData: React.Dispatch<
@@ -40,19 +40,23 @@ const SearchInputArea: React.FC<SearchInputProps> = ({
         });
   };
   return (
-    <>
-      <TextField
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          setSearchInput(e.target.value);
-        }}
-        id="standard-basic"
-        label="Search Word"
-        variant="standard"
-      />
-      <Button onClick={doSearch} variant="contained">
-        Search
-      </Button>
-    </>
+    <Grid container spacing={1} className="bg-gray-100 w-96">
+      <Grid xs={8}>
+        <TextField
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setSearchInput(e.target.value);
+          }}
+          id="standard-basic"
+          label="Search Word"
+          variant="standard"
+        />
+      </Grid>
+      <Grid xs={4}>
+        <Button onClick={doSearch} variant="contained">
+          Search
+        </Button>
+      </Grid>
+    </Grid>
   );
 };
 

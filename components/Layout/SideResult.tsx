@@ -3,6 +3,8 @@ import { AxiosResponse } from "axios";
 
 import ResultItem from "../UI/ResultItem";
 
+import { Divider } from "@mui/material";
+
 import "../../styles/SideResult.css";
 
 interface SideResultAreaProps {
@@ -15,9 +17,21 @@ const SideResultArea: React.FC<SideResultAreaProps> = ({
   isVisible,
 }) => {
   return (
-    <div>
+    <div className="bg-gray-100 w-96">
       {searchData?.data.results.map((result: any) => {
-        return <ResultItem result={result} />;
+        return (
+          <>
+            <ResultItem result={result} />
+            <Divider
+              sx={{
+                borderColor: "#D1D5DB",
+                marginTop: "8px",
+                marginBottom: "8px",
+                height: "2px",
+              }}
+            />
+          </>
+        );
       })}
     </div>
   );

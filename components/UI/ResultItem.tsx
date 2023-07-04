@@ -65,25 +65,33 @@ const ResultItem: React.FC<ResultItemProps> = ({ result }) => {
         data-placeId={result.place_id}
       >
         <Grid container spacing={1}>
-          <Grid xs={6}>
+          <Grid xs={8}>
             <Typography variant="subtitle1">{result.name}</Typography>
-            <Rating
-              name="half-rating-read"
-              defaultValue={4.5}
-              precision={0.5}
-              readOnly
-            />
             <Grid container spacing={1}>
-              <IconButton className="text-green-300">
+              <Grid xs={4}>
+                <Typography variant="body2">4.5</Typography>
+              </Grid>
+              <Grid xs={4}>
+                <Rating
+                  name="half-rating-read"
+                  defaultValue={4.5}
+                  precision={0.5}
+                  readOnly
+                  className="text-sm"
+                />
+              </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+              <IconButton className="text-xs text-green-300">
                 <CheckCircleRoundedIcon />
               </IconButton>
-              <IconButton className="text-red-300">
+              <IconButton className="text-xs text-red-300">
                 <FavoriteRoundedIcon />
               </IconButton>
             </Grid>
           </Grid>
-          <Grid xs={6}>
-            <div className="w-48 h-32">
+          <Grid xs={4}>
+            <div className="h-20 w-28">
               <img
                 src={imageUrl}
                 alt={result.name}

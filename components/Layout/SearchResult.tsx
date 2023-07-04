@@ -25,19 +25,23 @@ const SearchResult: React.FC<SearchResultProps> = ({
   setStoreDetails,
 }) => {
   return (
-    <div className="absolute flex h-full space-x-2 top-1">
-      <div className="overflow-auto">
+    <>
+      <div className="absolute top-0 left-0 z-10 flex space-x-2 bg-gray-100 w-96">
         <SearchInput
           setSerachData={setSerachData}
           setIsVisible={setIsVisible}
         />
-        <SideResult searchData={searchData} isVisible={isVisible} />
       </div>
-      <StoreDetails
-        storeDetails={storeDetails}
-        setStoreDetails={setStoreDetails}
-      />
-    </div>
+      <div className="absolute top-0 left-0 flex h-full pt-12 space-x-2 ">
+        <div className="overflow-x-hidden overflow-y-auto">
+          <SideResult searchData={searchData} isVisible={isVisible} />
+        </div>
+        <StoreDetails
+          storeDetails={storeDetails}
+          setStoreDetails={setStoreDetails}
+        />
+      </div>
+    </>
   );
 };
 

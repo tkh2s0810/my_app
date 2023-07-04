@@ -6,3 +6,13 @@
 .slide-in.visible {
   transform: translateX(0%); /* 表示時の位置にスライドイン */
 }
+
+::-webkit-scrollbar {
+  width: 8px; /* スクロールバーの幅 */
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9ca3af; /* スクロールバーの色 */
+  border-radius: 5px; /* スクロールバーの丸み */
+}
