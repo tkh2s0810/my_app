@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { TextField, Button, Unstable_Grid2 as Grid } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
 
 interface SearchInputProps {
   setSerachData: React.Dispatch<
@@ -40,8 +42,8 @@ const SearchInputArea: React.FC<SearchInputProps> = ({
         });
   };
   return (
-    <Grid container spacing={1} className="bg-gray-100 w-96">
-      <Grid xs={8}>
+    <Grid container spacing={1} className="items-center justify-center">
+      <Grid xs={10.5}>
         <TextField
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setSearchInput(e.target.value);
@@ -49,12 +51,13 @@ const SearchInputArea: React.FC<SearchInputProps> = ({
           id="standard-basic"
           label="Search Word"
           variant="standard"
+          className="w-96"
         />
       </Grid>
-      <Grid xs={4}>
-        <Button onClick={doSearch} variant="contained">
-          Search
-        </Button>
+      <Grid xs={1.5}>
+        <IconButton onClick={doSearch} color="primary" aria-label="Search">
+          <SearchIcon />
+        </IconButton>
       </Grid>
     </Grid>
   );
