@@ -32,7 +32,7 @@ const SearchResult: React.FC<SearchResultProps> = ({
           setIsVisible={setIsVisible}
         />
       </div>
-      <div className="absolute top-0 left-0 flex h-full pt-12 space-x-2 ">
+      <div className="absolute top-0 left-0 flex h-full pt-12 space-x-2">
         <div className="overflow-x-hidden overflow-y-auto">
           <SideResult searchData={searchData} isVisible={isVisible} />
         </div>
