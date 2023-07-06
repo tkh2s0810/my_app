@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AxiosResponse } from "axios";
+import { useRecoilValue } from "recoil";
+import { StoreDetailsState } from "../State/StoreDetailState";
 
 import SearchInput from "../UI/SerachInput";
 import SideResult from "./SideResult";
@@ -24,6 +26,8 @@ const SearchResult: React.FC<SearchResultProps> = ({
   storeDetails,
   setStoreDetails,
 }) => {
+  const { name } = useRecoilValue(StoreDetailsState);
+
   return (
     <>
       <div className="absolute top-0 left-0 z-10 flex space-x-2 bg-gray-100 w-96">
@@ -34,12 +38,14 @@ const SearchResult: React.FC<SearchResultProps> = ({
       </div>
       <div className="absolute top-0 left-0 flex h-full pt-12 space-x-2">
         <div className="overflow-x-hidden overflow-y-auto">
-          <SideResult searchData={searchData} isVisible={isVisible} />
+          {isVisible && <SideResult searchData={searchData} />}
         </div>
-        <StoreDetails
-          storeDetails={storeDetails}
-          setStoreDetails={setStoreDetails}
-        />
+        {name && (
+          <StoreDetails
+            storeDetails={storeDetails}
+            setStoreDetails={setStoreDetails}
+          />
+        )}
       </div>
     </>
   );

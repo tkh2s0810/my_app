@@ -13,7 +13,8 @@ import "../styles/tailwind.css";
 
 const RegistRestaurantArea: React.FC = ({}) => {
   const [searchData, setSerachData] = useState<AxiosResponse>();
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isVisibleSideResult, setIsVisibleSideResult] =
+    useState<boolean>(false);
   const [storeDetails, setStoreDetails] = useState();
 
   return (
@@ -23,8 +24,8 @@ const RegistRestaurantArea: React.FC = ({}) => {
         <SearchResult
           searchData={searchData}
           setSerachData={setSerachData}
-          isVisible={isVisible}
-          setIsVisible={setIsVisible}
+          isVisible={isVisibleSideResult}
+          setIsVisible={setIsVisibleSideResult}
           storeDetails={storeDetails}
           setStoreDetails={setStoreDetails}
         />

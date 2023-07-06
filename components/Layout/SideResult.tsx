@@ -9,13 +9,9 @@ import "../../styles/SideResult.css";
 
 interface SideResultAreaProps {
   searchData: AxiosResponse<any, any> | undefined;
-  isVisible: boolean;
 }
 
-const SideResultArea: React.FC<SideResultAreaProps> = ({
-  searchData,
-  isVisible,
-}) => {
+const SideResultArea: React.FC<SideResultAreaProps> = ({ searchData }) => {
   return (
     <div className="bg-gray-100 w-96">
       {searchData?.data.results.map((result: any) => {
