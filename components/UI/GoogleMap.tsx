@@ -21,6 +21,7 @@ const GoogleMapArea: React.FC<GoogleMapAreaProps> = ({ searchData }) => {
   const mapOptions = {
     mapTypeControl: false, // 地図の表示切り替えボタンを非表示
     streetViewControl: false, // ストリートビュー表示切り替えボタンを非表示
+    zoomControl: false, // ズームコントロールを非表示にする
   };
 
   // マップの中心座標
@@ -56,7 +57,7 @@ const GoogleMapArea: React.FC<GoogleMapAreaProps> = ({ searchData }) => {
         mapContainerStyle={mapContainerStyle}
         center={searchData?.data.results[0].geometry.location ?? center}
         options={mapOptions}
-        zoom={10}
+        zoom={15}
       >
         {searchData?.data.results.map((markerLoc: any) => {
           return (
